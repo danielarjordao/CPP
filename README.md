@@ -4,8 +4,8 @@ This repository contains all 10 C++ modules from the 42 curriculum, designed to 
 
 ## Modules Overview
 
-| Module        | Language | Status       | Description                                                                                             |
-|---------------|----------|--------------|-----------------------------------------------------------------------------------------------------|
+| Module           | Language | Status       | Description                                                                                             |
+|------------------|----------|--------------|-----------------------------------------------------------------------------------------------------|
 | [Module 00](#module-00) | C++      | Completed    | Introduction to C++: syntax, classes, constructors, destructors, and basics of Object-Oriented Programming. |
 | [Module 01](#module-01) | C++      | Completed    | Memory management, pointers, references, member pointers, and switch statements. |
 | [Module 02](#module-02) | C++      | Completed    | Function and operator overloading, and canonical form (Rule of Three/Five) for classes.      |
