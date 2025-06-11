@@ -4,18 +4,18 @@ This repository contains all 10 C++ modules from the 42 curriculum, designed to 
 
 ## Modules Overview
 
-| Module           | Language | Status       | Description                                                                                             |
-|------------------|----------|--------------|-----------------------------------------------------------------------------------------------------|
-| [Module 00](#module-00) | C++      | Completed    | Introduction to C++: syntax, classes, constructors, destructors, and basics of Object-Oriented Programming. |
-| [Module 01](#module-01) | C++      | Completed    | Memory management, pointers, references, member pointers, and switch statements. |
-| [Module 02](#module-02) | C++      | Completed    | Function and operator overloading, and canonical form (Rule of Three/Five) for classes.      |
-| [Module 03](#module-03) | C++      | Completed    | Inheritance: base and derived classes, access specifiers, and polymorphism fundamentals.             |
-| [Module 04](#module-04) | C++      | Completed    | Abstract classes, pure virtual functions, interfaces, and subtype polymorphism.                      |
-| [Module 05](#module-05) | C++      | In Progress  | Exception handling: try/catch blocks, standard exceptions, and custom exception classes.             |
-| [Module 06](#module-06) | C++      | Not Started  | Type casting: static_cast, dynamic_cast, const_cast, and reinterpret_cast explained and applied.    |
-| [Module 07](#module-07) | C++      | Not Started  | Templates: function and class templates for generic programming.                                     |
-| [Module 08](#module-08) | C++      | Not Started  | STL containers, iterators, and algorithms: understanding and applying the Standard Template Library.|
-| [Module 09](#module-09) | C++      | Not Started  | Advanced container usage and performance considerations in C++.                                     |
+| Module           | Language | Status       | Description                                       |
+|------------------|----------|--------------|-------------------------------------------------|
+| [Module 00](#module-00) | C++      | Completed    | Basics of C++, classes, constructors, and OOP fundamentals. |
+| [Module 01](#module-01) | C++      | Completed    | Memory management, pointers, references, and switch.          |
+| [Module 02](#module-02) | C++      | Completed    | Overloading and canonical form (Rule of Three/Five).           |
+| [Module 03](#module-03) | C++      | Completed    | Inheritance, access specifiers, and basic polymorphism.        |
+| [Module 04](#module-04) | C++      | Completed    | Abstract classes, pure virtual functions, and interfaces.      |
+| [Module 05](#module-05) | C++      | In Progress  | Exception handling with try/catch and custom exceptions.       |
+| [Module 06](#module-06) | C++      | Not Started  | Casting operators: static, dynamic, const, reinterpret.         |
+| [Module 07](#module-07) | C++      | Not Started  | Templates for generic programming.                             |
+| [Module 08](#module-08) | C++      | Not Started  | STL containers, iterators, and algorithms.                      |
+| [Module 09](#module-09) | C++      | Not Started  | Advanced container use and performance considerations.          |
 
 ---
 
