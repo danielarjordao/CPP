@@ -6,162 +6,372 @@ This repository contains all 10 C++ modules from the 42 curriculum, designed to 
 
 | Module           | Language | Status       | Description                                       |
 |------------------|----------|--------------|-------------------------------------------------|
-| [Module 00](#module-00) | C++      | Completed    | Basics of C++, classes, constructors, and OOP fundamentals. |
-| [Module 01](#module-01) | C++      | Completed    | Memory management, pointers, references, and switch.          |
-| [Module 02](#module-02) | C++      | Completed    | Overloading and canonical form (Rule of Three/Five).           |
-| [Module 03](#module-03) | C++      | Completed    | Inheritance, access specifiers, and basic polymorphism.        |
-| [Module 04](#module-04) | C++      | Completed    | Abstract classes, pure virtual functions, and interfaces.      |
-| [Module 05](#module-05) | C++      | In Progress  | Exception handling with try/catch and custom exceptions.       |
-| [Module 06](#module-06) | C++      | Not Started  | Casting operators: static, dynamic, const, reinterpret.         |
-| [Module 07](#module-07) | C++      | Not Started  | Templates for generic programming.                             |
-| [Module 08](#module-08) | C++      | Not Started  | STL containers, iterators, and algorithms.                      |
-| [Module 09](#module-09) | C++      | Not Started  | Advanced container use and performance considerations.          |
+| [Module 00] | C++      | Completed    | Basics of C++, classes, constructors, and OOP fundamentals. |
+| [Module 01] | C++      | Completed    | Memory management, pointers, references, and switch.          |
+| [Module 02] | C++      | Completed    | Overloading and canonical form (Rule of Three/Five).           |
+| [Module 03] | C++      | Completed    | Inheritance, access specifiers, and basic polymorphism.        |
+| [Module 04] | C++      | Completed    | Abstract classes, pure virtual functions, and interfaces.      |
+| [Module 05] | C++      | In Progress  | Exception handling with try/catch and custom exceptions.       |
+| [Module 06] | C++      | Not Started  | Casting operators: static, dynamic, const, reinterpret.         |
+| [Module 07] | C++      | Not Started  | Templates for generic programming.                             |
+| [Module 08] | C++      | Not Started  | STL containers, iterators, and algorithms.                      |
+| [Module 09] | C++      | Not Started  | Advanced container use and performance considerations.          |
 
 ---
 
-## Module Details
+## C++ Basic Concepts and Classes
 
-### Module 00  
+### 📘 Basics
 
-**Concepts Summary**
+#### Input/Output
 
-This module marks the beginning of the journey in C++ programming and focuses on transitioning from C to Object-Oriented Programming (OOP) using C++. The code must follow the C++98 standard to ensure compatibility and simplicity during the initial steps.
+* `iostream` is a standard library in C++ that provides functionality for input and output operations.
 
-###### 🚀 Fundamentals and Structure
+  * `std::cout` is used to output data to the screen.
+  * `std::endl` adds a newline and flushes the output buffer.
 
-- C++ builds on C and introduces new paradigms such as OOP.
-- Programs start with `main`, just like in C, but C++ supports a more robust syntax for working with objects, classes, and methods.
+#### Strings
 
-###### 📦 `namespace std`
+* `std::string` is used to work with text strings.
 
-- Standard library objects and functions (e.g., `cout`, `cin`, `endl`, `string`) are in the `std` namespace.
-- Use the `std::` prefix to access them.
+#### Compilation
 
-###### 💬 Input and Output
+* Compile with:
 
-- `<iostream>` enables input/output operations:
-  ```cpp
-  std::cin >> variable;
-  std::cout << "Output" << std::endl;
-  ```
-- `std::endl` is safer than `\n` as it flushes the output buffer.
-- `getline(std::cin, stringVar)`: reads a full line including spaces.
-- `cin.clear()`: resets the input state after a failed input operation.
-
-###### 📚 `string` Library
-
-- The `string` class simplifies string manipulation compared to C-strings.
-  ```cpp
-  std::string name = "Daniela";
+  ```bash
+  c++ -Wall -Wextra -Werror -std=c++98 hello.cpp -o hello
   ```
 
-###### ⚙️ Compilation
+  * `-std=c++98`: use only C++98 standard features.
 
-Compile using:
+#### `const`
 
-```bash
-c++ -Wall -Wextra -Werror -std=c++98
-```
+* Declares a variable as constant (immutable after initialization).
+* By convention, constants are written in uppercase.
 
-- `-Wall -Wextra -Werror`: enable warnings and treat them as errors.
-- `-std=c++98`: enforce the use of the C++98 standard.
+#### Scope
 
-###### 🧱 Classes and OOP
+* Global variables are accessible from anywhere in the program.
+* Variables declared inside a block are only accessible within that block.
 
-- A **class** defines attributes (variables) and behaviors (methods).
-- **Objects** are instances of classes.
+#### Arrays
 
-Access control:
-- `private`: members are accessible only within the class.
-- `public`: members can be accessed from outside.
+* Arrays are stored in a contiguous block of memory.
+* Their size is fixed at compile time.
+* Accessing an out-of-bounds index causes undefined behavior.
+* When passed to functions, arrays are passed by reference (as a pointer).
+* Pointer arithmetic can be used to access elements.
 
-Example:
-
-```cpp
-class Student {
-public:
-    Student();
-    ~Student();
-    void setName(std::string name);
-    void printName();
-private:
-    std::string name;
-};
-```
-
-###### 🧠 Additional Class Concepts
-
-- **Constructor/Destructor**: Special methods triggered during object creation/destruction.
-- **Copy constructor**: Used when an object is copied.
-- `this->`: A pointer to the current object, often used to resolve naming conflicts.
-
-###### 🧾 Architecture
-
-- Headers (`.hpp`) contain class definitions.
-- Implementation goes into `.cpp` files.
-- Use `#ifndef`, `#define`, `#endif` to prevent multiple inclusions.
-
-###### ⚖️ Constants and `const`
-
-- Use `const` to prevent modifications to variables or class methods.
-- Const methods ensure the internal state of the object isn't changed.
-
-###### 🧰 Extra Tools and Concepts
-
-- `setw`: From `<iomanip>`, formats output width for aligned printing.
-- `exit(statusCode)`: Immediately terminates the program with a status code.
-
-- `_displayTimestamp()`
-
-A utility function to print the current timestamp, useful for logging or debugging. It demonstrates usage of time-related standard library components:
-
-- `time_t`: represents the current calendar time.
-- `struct tm`: holds a calendar time broken down into its components.
-- `time()`: gets the current time.
-- `localtime()`: converts `time_t` to local time.
-- `strftime()`: formats time into a human-readable string.
+#### For Loop
 
 ```cpp
-void Account::_displayTimestamp() {
-    time_t currentTime;
-    struct tm *localTime;
-    char formattedTime[16];
-
-    time(&currentTime);
-    localTime = localtime(&currentTime);
-    strftime(formattedTime, sizeof(formattedTime), "%Y%m%d_%H%M%S", localTime);
-    std::cout << "[" << formattedTime << "] ";
+for (initialization; condition; increment) {
+  // loop body
 }
 ```
 
-### Module 01  
-**Memory Management and Pointers**  
-Focuses on memory handling and references, including:  
-- Use of pointers and references in C++  
-- Pointers to class members (methods and attributes)  
-- Control flow with the `switch` statement  
-- Differences in memory management compared to C  
+* Initialization runs once.
+* Condition is checked before each iteration.
+* Increment runs after each iteration.
 
-### Module 02  
-**Ad-hoc Polymorphism and Canonical Form**  
-Covers ad-hoc polymorphism through:  
-- Function and operator overloading for customized behavior  
-- Implementation of the canonical form (Rule of Three/Five): copy constructor, copy assignment operator, destructor, move constructor, and move assignment operator  
-- Proper resource management to avoid shallow copies and other issues  
+#### Do-While Loop
 
-### Module 03  
-**Inheritance and Basic Polymorphism**  
-Explores core inheritance concepts, including:  
-- Creation of base and derived classes  
-- Access specifiers (`public`, `protected`, `private`) and their effects on inheritance  
-- Introductory static and dynamic polymorphism  
-- Use of virtual functions  
+```cpp
+do {
+  // loop body
+} while (condition);
+```
 
-### Module 04  
-**Subtype Polymorphism and Interfaces**  
-Deepens the understanding of polymorphism by introducing:  
-- Abstract classes and pure virtual functions  
-- Interfaces to enforce implementation contracts  
-- Flexible and extensible code design using inheritance and dynamic polymorphism  
-- Interface-oriented design for decoupling  
+* Executes the loop body at least once.
 
+#### `continue` and `break`
+
+* `continue`: skips to the next iteration.
+* `break`: exits the loop.
+
+#### Recursion
+
+* A function that calls itself.
+
+```cpp
+int factorial(int n) {
+  if (n == 0) return 1;
+  else return n * factorial(n - 1);
+}
+```
+
+* Recursion uses the stack; improper base cases lead to stack overflow.
+
+#### Functions
+
+```cpp
+return_type function_name(parameter_type parameter_name) {
+  // body
+  return value;
+}
+```
+
+* Functions can be overloaded (same name, different parameters).
+* Passed by value: copies the variable.
+* Passed by reference: allows modification of original.
+* Passed by pointer: passes memory address.
+
+#### Passing Variables
+
+* **By Value**
+
+  * Copies data. Changes inside function don’t affect the original.
+* **By Reference**
+
+  ```cpp
+  void modify(int &x) { x = 10; }
+  ```
+* **By Pointer**
+
+  ```cpp
+  void modify(int *x) { *x = 10; }
+  ```
+
+#### Pointers
+
+* Variables that store memory addresses.
+* Declared with `*`, dereferenced with `*`.
+* Used for dynamic memory and advanced data structures.
+
+#### Dynamic Memory
+
+* `new` allocates memory, returns a pointer.
+* `delete` frees memory.
+
+```cpp
+int* p = new int;
+delete p;
+```
+
+* Use `delete[]` for arrays.
+* Always deallocate to avoid memory leaks.
+
+#### Null Pointer
+
+* A pointer that points to no valid memory.
+
+#### Function Pointers
+
+* Store function addresses.
+* Can use `typedef` for cleaner syntax.
+
+#### Lvalue vs. Rvalue
+
+* **Lvalue**: has a memory address, can be assigned.
+* **Rvalue**: temporary, no address, cannot be assigned to.
+
+#### Variable Sizes
+
+Use `sizeof(type)`:
+
+```cpp
+sizeof(int); // typically 4
+```
+
+Common sizes (64-bit systems):
+
+| Type   | Size (bytes) |
+| ------ | ------------ |
+| char   | 1            |
+| int    | 4            |
+| float  | 4            |
+| double | 8            |
+| bool   | 1            |
+| void\* | 8            |
+
+---
+
+### 📄 Interface vs Implementation
+
+#### Separation of Concerns
+
+* **Header (.hpp)**: contains function/class declarations (interface).
+* **Source (.cpp)**: contains the implementation.
+
+#### Example
+
+📄 `calculator.hpp`
+
+```cpp
+#ifndef CALCULATOR_HPP
+#define CALCULATOR_HPP
+int add(int a, int b);
+#endif
+```
+
+📄 `calculator.cpp`
+
+```cpp
+#include "calculator.hpp"
+int add(int a, int b) { return a + b; }
+```
+
+📄 `main.cpp`
+
+```cpp
+#include <iostream>
+#include "calculator.hpp"
+int main() {
+  std::cout << add(3, 4);
+}
+```
+
+* Use `"filename.hpp"` for user-defined headers.
+* Include guards prevent multiple inclusion.
+
+---
+
+### 🧱 Structs and Classes
+
+#### Struct
+
+```cpp
+struct Point {
+  int x, y;
+  void move(int dx, int dy) {
+    x += dx;
+    y += dy;
+  }
+};
+```
+
+* Public members by default.
+* Good for grouping simple data.
+
+#### Class
+
+```cpp
+class Student {
+private:
+  std::string name;
+  int age;
+public:
+  Student(std::string name, int age) {
+    this->name = name;
+    this->age = age;
+  }
+  void display() {
+    std::cout << name << ", " << age << std::endl;
+  }
+};
+```
+
+* Private members by default.
+* Supports encapsulation and abstraction.
+
+#### Access Specifiers
+
+* `public`: accessible from anywhere.
+* `private`: accessible only within the class.
+* `protected`: accessible in class and subclasses.
+
+#### Constructor / Destructor
+
+* **Constructor**: runs on object creation.
+* **Destructor**: runs on object destruction.
+
+```cpp
+class Book {
+public:
+  Book() { std::cout << "Book created!"; }
+  ~Book() { std::cout << "Book destroyed!"; }
+};
+```
+
+#### Copy Constructor
+
+* Used when an object is copied.
+* Default copy constructor performs shallow copy.
+
+#### `this` Pointer
+
+* Refers to the current object.
+
+```cpp
+this->name = name;
+```
+
+#### Object
+
+* An instance of a class.
+
+```cpp
+Student s("John", 20);
+```
+
+### Classes Advanced Concepts
+
+#### RAII (Resource Acquisition Is Initialization)
+RAII is a programming idiom ensuring that resources such as memory, file handles, and network connections are properly acquired and released.
+- The resource is acquired in a class constructor and released in its destructor.
+- This guarantees resource cleanup automatically when objects go out of scope.
+
+#### Copy Constructor and Copy Assignment Operator
+- C++ provides a default copy constructor and assignment operator that perform shallow copies (copy pointer values, not the data).
+- This can cause issues like double deletion or shared ownership of resources.
+- Implementing deep copy versions avoids these problems by copying the actual data.
+- The copy-and-swap idiom is a safe way to implement copy assignment, allowing exception safety and self-assignment protection.
+- Sometimes, you can make copy constructors private to prevent copying outside the class, enforcing reference passing instead.
+
+#### Operator Overloading (Example: Vector3f class)
+- Overload operators to make custom classes behave like built-in types.
+- Example operators:
+  - operator+ to add vectors.
+  - operator++ for incrementing values.
+  - operator== to compare equality.
+  - operator<< for output streaming (e.g., printing).
+
+- Remember:
+  - Use const where appropriate for safety.
+  - Floating-point equality should use a tolerance because of precision issues (e.g., std::abs(a - b) < tolerance).
+
+#### Inheritance and Access Specifiers
+##### Types of Inheritance and Member Access
+| Inheritance Type | Base `public` Members | Base `protected` Members | Base `private` Members |
+| ---------------- | --------------------- | ------------------------ | ---------------------- |
+| **public**       | public                | protected                | inaccessible           |
+| **protected**    | protected             | protected                | inaccessible           |
+| **private**      | private               | private                  | inaccessible           
+
+- Derived classes inherit members according to inheritance type.
+- Private members of the base class are never accessible directly by derived classes.
+
+#### Polymorphism and Virtual Functions
+- Virtual functions allow derived classes to override base class methods, enabling dynamic dispatch at runtime.
+- A vtable (virtual table) is generated by the compiler for classes with virtual functions.
+- Each object holds a pointer (vptr) to its class's vtable.
+- Virtual destructors are essential in polymorphic base classes to ensure proper cleanup of derived objects.
+
+#### Virtual Tables (Vtables) Explained
+- The vtable is an array of pointers to virtual functions of the class.
+- When a virtual function is called on an object pointer/reference, the vtable lookup resolves the correct function implementation based on the object's dynamic type.
+- Example:
+
+```cpp
+class Base {
+    virtual ~Base() {}
+    virtual void foo();
+};
+class Derived : public Base {
+    ~Derived() override {}
+    void foo() override;
+};
+```
+The Derived class's vtable overrides Base's entries for virtual functions it implements.
+
+#### Abstract Classes
+- Contain pure virtual functions (declared with = 0) and cannot be instantiated directly.
+- Derived classes must implement all pure virtual functions to become concrete (instantiable).
+- Provide an interface and can define common functionality and virtual destructors.
+- Base class pointers to abstract classes allow calling only the base's declared methods (virtual dispatches to derived implementations).
+- New methods in derived classes are not accessible through base class pointers.
+
+#### Multiple Inheritance and the Diamond Problem
+- Multiple inheritance allows a class to inherit from more than one base class.
+- The diamond problem arises when two base classes inherit from a common ancestor, and a derived class inherits from both, causing ambiguity about which base class member to use.
+- C++ solves this using virtual inheritance, which ensures only one copy of the common base is included.
