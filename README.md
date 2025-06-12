@@ -6,11 +6,11 @@ This repository contains all 10 C++ modules from the 42 curriculum, designed to 
 
 | Module           | Language | Status       | Description                                       |
 |------------------|----------|--------------|-------------------------------------------------|
-| [Module 00] | C++      | Completed    | Basics of C++, classes, constructors, and OOP fundamentals. |
-| [Module 01] | C++      | Completed    | Memory management, pointers, references, and switch.          |
-| [Module 02] | C++      | Completed    | Overloading and canonical form (Rule of Three/Five).           |
-| [Module 03] | C++      | Completed    | Inheritance, access specifiers, and basic polymorphism.        |
-| [Module 04] | C++      | Completed    | Abstract classes, pure virtual functions, and interfaces.      |
+| [Module 00](https://github.com/danielarjordao/CPP/tree/d296601ee282196436ae88be01159e29146afcf6/CPP%20Module%2000) | C++      | Completed    | Basics of C++, classes, constructors, and OOP fundamentals. |
+| [Module 01](https://github.com/danielarjordao/CPP/tree/d296601ee282196436ae88be01159e29146afcf6/CPP%20Module%2001) | C++      | Completed    | Memory management, pointers, references, and switch.          |
+| [Module 02](https://github.com/danielarjordao/CPP/tree/d296601ee282196436ae88be01159e29146afcf6/CPP%20Module%2002) | C++      | Completed    | Overloading and canonical form (Rule of Three/Five).           |
+| [Module 03](https://github.com/danielarjordao/CPP/tree/d296601ee282196436ae88be01159e29146afcf6/CPP%20Module%2003) | C++      | Completed    | Inheritance, access specifiers, and basic polymorphism.        |
+| [Module 04](https://github.com/danielarjordao/CPP/tree/d296601ee282196436ae88be01159e29146afcf6/CPP%20Module%2004) | C++      | Completed    | Abstract classes, pure virtual functions, and interfaces.      |
 | [Module 05] | C++      | In Progress  | Exception handling with try/catch and custom exceptions.       |
 | [Module 06] | C++      | Not Started  | Casting operators: static, dynamic, const, reinterpret.         |
 | [Module 07] | C++      | Not Started  | Templates for generic programming.                             |
