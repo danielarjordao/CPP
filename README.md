@@ -21,6 +21,48 @@ This repository contains all 10 C++ modules from the 42 curriculum, designed to 
 
 ## C++ Basic Concepts and Classes
 
+### 📚 Index
+
+- [Modules Overview](#modules-overview)
+- [C++ Basic Concepts and Classes](#c-basic-concepts-and-classes)
+  - [📘 Basics](#-basics)
+    - [Input/Output](#inputoutput)
+    - [Strings](#strings)
+    - [Compilation](#compilation)
+    - [`const`](#const)
+    - [Scope](#scope)
+    - [Arrays](#arrays)
+    - [For Loop](#for-loop)
+    - [Do-While Loop](#do-while-loop)
+    - [`continue` and `break`](#continue-and-break)
+    - [Recursion](#recursion)
+    - [Functions](#functions)
+    - [Passing Variables](#passing-variables)
+    - [Pointers](#pointers)
+    - [Dynamic Memory](#dynamic-memory)
+    - [Null Pointer](#null-pointer)
+    - [Function Pointers](#function-pointers)
+    - [Lvalue vs. Rvalue](#lvalue-vs-rvalue)
+    - [Variable Sizes](#variable-sizes)
+  - [📄 Interface vs Implementation](#-interface-vs-implementation)
+  - [🧱 Structs and Classes](#-structs-and-classes)
+    - [Struct](#struct)
+    - [Class](#class)
+    - [Access Specifiers](#access-specifiers)
+    - [Constructor / Destructor](#constructor--destructor)
+    - [Copy Constructor](#copy-constructor)
+    - [`this` Pointer](#this-pointer)
+    - [Object](#object)
+- [Classes Advanced Concepts](#classes-advanced-concepts)
+  - [RAII](#raii-resource-acquisition-is-initialization)
+  - [Copy Constructor and Assignment](#copy-constructor-and-copy-assignment-operator)
+  - [Operator Overloading](#operator-overloading-example-vector3f-class)
+  - [Inheritance and Access Specifiers](#inheritance-and-access-specifiers)
+  - [Polymorphism and Virtual Functions](#polymorphism-and-virtual-functions)
+  - [Virtual Tables (Vtables)](#virtual-tables-vtables-explained)
+  - [Abstract Classes](#abstract-classes)
+  - [Multiple Inheritance and Diamond Problem](#multiple-inheritance-and-the-diamond-problem)
+
 ### 📘 Basics
 
 #### Input/Output
