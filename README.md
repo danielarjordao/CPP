@@ -23,7 +23,7 @@ This repository contains all 10 C++ modules from the 42 curriculum, designed to 
 
 ### 📚 Index
 
-- [Compilation Process](#-compilation-process)
+- [Compilation Process](#Compilation-Process)
 - [Basics](#Basics)
   - [Input/Output](#inputoutput)
   - [Strings](#strings)
@@ -43,8 +43,8 @@ This repository contains all 10 C++ modules from the 42 curriculum, designed to 
   - [Function Pointers](#function-pointers)
   - [Lvalue vs. Rvalue](#lvalue-vs-rvalue)
   - [Variable Sizes](#variable-sizes)
-- [Interface vs Implementation](#-interface-vs-implementation)
-- [Structs and Classes](#-structs-and-classes)
+- [Interface vs Implementation](#Interface-vs-Implementation)
+- [Structs and Classes](#Structs-and-Classes)
   - [Struct](#struct)
   - [Class](#class)
   - [Access Specifiers](#access-specifiers)
