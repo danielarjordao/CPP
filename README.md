@@ -24,7 +24,7 @@ This repository contains all 10 C++ modules from the 42 curriculum, designed to 
 ### 📚 Index
 
 - [Compilation Process](#-compilation-process)
-- [Basics](#-basics)
+- [Basics](#Basics)
   - [Input/Output](#inputoutput)
   - [Strings](#strings)
   - [`const`](#const)
