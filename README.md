@@ -50,7 +50,7 @@ This repository contains all 10 C++ modules from the 42 curriculum, designed to 
   - [Access Specifiers](#access-specifiers)
   - [Constructor / Destructor](#constructor--destructor)
   - [Copy Constructor](#copy-constructor)
-  - [Rule of Three](#-rule-of-three)
+  - [Rule of Three](#rule-of-three)
   - [`this` Pointer](#this-pointer)
   - [Object](#object)
 - [Classes Advanced Concepts](#classes-advanced-concepts)
