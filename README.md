@@ -23,11 +23,12 @@ This repository contains all 10 C++ modules from the 42 curriculum, designed to 
 
 ### 📚 Index
 
-- [📘 Basics](#-basics)
+- [Compilation Process](#-compilation-process)
+- [Basics](#-basics)
   - [Input/Output](#inputoutput)
   - [Strings](#strings)
-  - [Compilation](#compilation)
   - [`const`](#const)
+  - [`static`](#static)
   - [Scope](#scope)
   - [Arrays](#arrays)
   - [For Loop](#for-loop)
@@ -42,13 +43,14 @@ This repository contains all 10 C++ modules from the 42 curriculum, designed to 
   - [Function Pointers](#function-pointers)
   - [Lvalue vs. Rvalue](#lvalue-vs-rvalue)
   - [Variable Sizes](#variable-sizes)
-- [📄 Interface vs Implementation](#-interface-vs-implementation)
-- [🧱 Structs and Classes](#-structs-and-classes)
+- [Interface vs Implementation](#-interface-vs-implementation)
+- [Structs and Classes](#-structs-and-classes)
   - [Struct](#struct)
   - [Class](#class)
   - [Access Specifiers](#access-specifiers)
   - [Constructor / Destructor](#constructor--destructor)
   - [Copy Constructor](#copy-constructor)
+  - [Rule of Three](#-rule-of-three)
   - [`this` Pointer](#this-pointer)
   - [Object](#object)
 - [Classes Advanced Concepts](#classes-advanced-concepts)
@@ -61,7 +63,35 @@ This repository contains all 10 C++ modules from the 42 curriculum, designed to 
   - [Abstract Classes](#abstract-classes)
   - [Multiple Inheritance and Diamond Problem](#multiple-inheritance-and-the-diamond-problem)
 
-### 📘 Basics
+### Compilation Process
+
+#### Compilation Stages
+
+C++ compilation involves multiple stages:
+
+1. **Preprocessing** (`.cpp` → `.i`)
+   - Handles `#include`, `#define`, and other directives.
+   - Removes comments and expands macros.
+
+2. **Compilation** (`.i` → `.s`)
+   - Translates preprocessed code into assembly code.
+   - Performs syntax analysis and optimizations.
+
+3. **Assembly** (`.s` → `.o`)
+   - Converts assembly to machine code (object file).
+   - Code is not yet executable—no linking done.
+
+4. **Linking** (`.o` + libs → executable)
+   - Combines object files and libraries.
+   - Resolves symbol references (functions, variables).
+
+#### Example with `c++`:
+
+```bash
+c++ -Wall -Wextra -Werror -std=c++98 main.cpp -o main
+```
+
+### Basics
 
 #### Input/Output
 
@@ -74,20 +104,16 @@ This repository contains all 10 C++ modules from the 42 curriculum, designed to 
 
 * `std::string` is used to work with text strings.
 
-#### Compilation
-
-* Compile with:
-
-  ```bash
-  c++ -Wall -Wextra -Werror -std=c++98 hello.cpp -o hello
-  ```
-
-  * `-std=c++98`: use only C++98 standard features.
-
 #### `const`
 
 * Declares a variable as constant (immutable after initialization).
 * By convention, constants are written in uppercase.
+
+#### `static`
+
+- Local `static`: retains value between calls, initialized once.
+- `static` in classes: variable shared among objects, defined outside class; function callable without instance, accesses only static members.
+- `static` in files: limits scope of variables/functions to the file, avoiding conflicts.
 
 #### Scope
 
@@ -226,7 +252,7 @@ Common sizes (64-bit systems):
 
 ---
 
-### 📄 Interface vs Implementation
+### Interface vs Implementation
 
 #### Separation of Concerns
 
@@ -235,7 +261,7 @@ Common sizes (64-bit systems):
 
 #### Example
 
-📄 `calculator.hpp`
+`calculator.hpp`
 
 ```cpp
 #ifndef CALCULATOR_HPP
@@ -244,14 +270,14 @@ int add(int a, int b);
 #endif
 ```
 
-📄 `calculator.cpp`
+`calculator.cpp`
 
 ```cpp
 #include "calculator.hpp"
 int add(int a, int b) { return a + b; }
 ```
 
-📄 `main.cpp`
+`main.cpp`
 
 ```cpp
 #include <iostream>
@@ -266,7 +292,7 @@ int main() {
 
 ---
 
-### 🧱 Structs and Classes
+### Structs and Classes
 
 #### Struct
 
@@ -327,6 +353,50 @@ public:
 
 * Used when an object is copied.
 * Default copy constructor performs shallow copy.
+
+#### Rule of Three
+
+If your class needs any of the following, it likely needs **all three**:
+
+1. **Destructor**
+2. **Copy Constructor**
+3. **Copy Assignment Operator**
+
+This is to **avoid shallow copies** and ensure proper memory/resource management.
+
+##### Example:
+
+```cpp
+class MyClass {
+private:
+  int* data;
+public:
+  MyClass(int value) {
+    data = new int(value);
+  }
+
+  // Destructor
+  ~MyClass() {
+    delete data;
+  }
+
+  // Copy Constructor
+  MyClass(const MyClass& other) {
+    data = new int(*other.data);
+  }
+
+  // Copy Assignment Operator
+  MyClass& operator=(const MyClass& other) {
+    if (this != &other) {
+      delete data;
+      data = new int(*other.data);
+    }
+    return *this;
+  }
+};
+```
+
+Without proper handling, a shallow copy of the `data` pointer would lead to **double delete** errors or memory leaks.
 
 #### `this` Pointer
 
