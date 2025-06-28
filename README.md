@@ -1,6 +1,6 @@
 # 42 C++ Modules Projects
 
-This repository contains all 10 C++ modules from the 42 curriculum, designed to progressively develop skills in C++ programming — from basic concepts to advanced techniques and the Standard Template Library (STL).
+Collection of C++ projects covering object-oriented programming fundamentals: classes, inheritance, polymorphism, memory management, and design patterns.
 
 ## Modules Overview
 
